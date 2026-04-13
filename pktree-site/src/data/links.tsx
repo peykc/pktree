@@ -8,7 +8,7 @@ import type { ProfileLink } from "../types";
 // Custom icon component for PKCollection using the uploaded transparent logo
 const PKCollectionIcon = (props: any) => (
   <img 
-    src="/pk-logo.png" 
+    src={`${import.meta.env.BASE_URL}pk-logo.png`} 
     alt="PKCollection" 
     style={{ width: "1.5rem", height: "1.5rem", objectFit: "contain" }}
     {...props}

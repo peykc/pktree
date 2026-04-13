@@ -25,7 +25,7 @@ export const paymentMethods: PaymentMethod[] = [
     accent: "#00d64f",
     mode: "modal",
     username: cashAppHandle,
-    qrImage: "/qr-cashapp.png",
+    qrImage: `${import.meta.env.BASE_URL}qr-cashapp.png`,
     fallbackUrl: `https://cash.app/${cashAppHandle.replace("$", "")}`,
   },
   {
@@ -36,7 +36,7 @@ export const paymentMethods: PaymentMethod[] = [
     accent: "#008CFF",
     mode: "modal",
     username: venmoUsername,
-    qrImage: "/qr-venmo.png",
+    qrImage: `${import.meta.env.BASE_URL}qr-venmo.png`,
     fallbackUrl: `https://venmo.com/${venmoUsername}`,
   },
   {
@@ -46,7 +46,7 @@ export const paymentMethods: PaymentMethod[] = [
     icon: SiZelle,
     accent: "#741EE8",
     mode: "modal",
-    qrImage: "/qr-zelle.png",
+    qrImage: `${import.meta.env.BASE_URL}qr-zelle.png`,
     // Address removed for OPSEC (no phone number/email displayed)
   },
   {
@@ -57,7 +57,7 @@ export const paymentMethods: PaymentMethod[] = [
     accent: "#ff6b00",
     mode: "modal",
     featured: true,
-    qrImage: "/qr-xmr.png",
+    qrImage: `${import.meta.env.BASE_URL}qr-xmr.png`,
     address: moneroAddress,
     uriBuilder: ({ amount, note }) => {
       const params = new URLSearchParams();
@@ -74,7 +74,7 @@ export const paymentMethods: PaymentMethod[] = [
     icon: SiPaypal,
     accent: "#00457C",
     mode: "modal",
-    qrImage: "/qr-paypal.png",
+    qrImage: `${import.meta.env.BASE_URL}qr-paypal.png`,
     fallbackUrl: "https://www.paypal.com/donate/?hosted_button_id=ZPXWLLLBXJM34",
   },
   {
@@ -84,7 +84,7 @@ export const paymentMethods: PaymentMethod[] = [
     icon: SiBitcoin,
     accent: "#f7931a",
     mode: "modal",
-    qrImage: "/qr-btc.png",
+    qrImage: `${import.meta.env.BASE_URL}qr-btc.png`,
     address: bitcoinAddress,
     uriBuilder: ({ amount, note }) => {
       const params = new URLSearchParams();
@@ -101,7 +101,7 @@ export const paymentMethods: PaymentMethod[] = [
     icon: SiEthereum,
     accent: "#627eea",
     mode: "modal",
-    qrImage: "/qr-eth.png",
+    qrImage: `${import.meta.env.BASE_URL}qr-eth.png`,
     address: ethereumAddress,
     uriBuilder: ({ amount }) =>
       `ethereum:${ethereumAddress}${amount ? `?value=${amount}` : ""}`,

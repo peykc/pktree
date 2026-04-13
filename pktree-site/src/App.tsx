@@ -118,15 +118,6 @@ const App = () => {
         onSelect={onSelectMethod}
       />
 
-      {canonicalPayUrl && (
-        <p className="share-hint">
-          Share selected method:{" "}
-          <a href={canonicalPayUrl} target="_blank" rel="noreferrer">
-            {canonicalPayUrl}
-          </a>
-        </p>
-      )}
-
       <LinkList links={profileLinks} />
 
       <Suspense fallback={null}>
