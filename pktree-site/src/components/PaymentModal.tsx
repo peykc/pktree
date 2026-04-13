@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { IoCopyOutline, IoOpenOutline } from "react-icons/io5";
+import { IoCopyOutline, IoOpenOutline, IoClose } from "react-icons/io5";
 import { buildPaymentUri, buildQrImageUrl, getQrValue } from "../lib/payment-utils";
 import type { PaymentMethod, PaymentQueryOptions } from "../types";
 
@@ -50,7 +50,7 @@ const PaymentModal = ({
           aria-label="Close payment details"
           onClick={onClose}
         >
-          x
+          <IoClose aria-hidden="true" />
         </button>
 
         <div className="modal-header">
@@ -79,7 +79,7 @@ const PaymentModal = ({
           {(uri ?? method.fallbackUrl) && (
             <a href={uri ?? method.fallbackUrl} target="_blank" rel="noreferrer">
               <IoOpenOutline aria-hidden="true" />
-              Open wallet
+              {method.id === "cashapp" ? "Open Cashapp" : method.id === "venmo" ? "Open Venmo" : method.id === "paypal" ? "Open Paypal" : "Open wallet"}
             </a>
           )}
         </div>

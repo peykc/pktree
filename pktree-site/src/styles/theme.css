@@ -200,9 +200,9 @@ a {
 
 .value-card-tooltip {
   position: absolute;
-  bottom: calc(100% + 12px);
+  top: calc(100% + 12px);
   left: 50%;
-  transform: translateX(-50%) translateY(8px);
+  transform: translateX(-50%) translateY(-8px);
   background: var(--text);
   color: var(--bg);
   padding: 6px 12px;
@@ -221,12 +221,12 @@ a {
 .value-card-tooltip::after {
   content: '';
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
   border-width: 6px;
   border-style: solid;
-  border-color: var(--text) transparent transparent transparent;
+  border-color: transparent transparent var(--text) transparent;
 }
 
 .value-card:hover .value-card-tooltip {
@@ -344,13 +344,19 @@ a {
   border: none;
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-muted);
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.modal-close svg {
+  width: 20px;
+  height: 20px;
 }
 
 .modal-close:hover {
