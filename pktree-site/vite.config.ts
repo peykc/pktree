@@ -7,5 +7,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     base: env.VITE_BASE_PATH || "/pktree/",
+    build: {
+      assetsInlineLimit: 0, // Disable base64 inlining to fix GitHub Pages CSP errors
+    },
   };
 });
