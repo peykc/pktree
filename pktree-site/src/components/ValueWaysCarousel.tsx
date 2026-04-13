@@ -23,6 +23,7 @@ const ValueWaysCarousel = ({
           <button
             className={`value-card${selected ? " is-selected" : ""}${method.featured ? " is-featured" : ""}`}
             key={method.id}
+            data-id={method.id}
             role="listitem"
             type="button"
             onClick={() => onSelect(method)}

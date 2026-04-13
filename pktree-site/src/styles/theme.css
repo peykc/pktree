@@ -143,6 +143,49 @@ a {
   flex-wrap: wrap;
 }
 
+/* Force specific wrapping so Monero is always centered */
+.value-ways-track::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  order: 4;
+}
+
+.value-card[data-id="cashapp"] { order: 1; }
+.value-card[data-id="monero"] { order: 2; }
+.value-card[data-id="venmo"] { order: 3; }
+.value-card[data-id="zelle"] { order: 5; }
+.value-card[data-id="paypal"] { order: 6; }
+.value-card[data-id="bitcoin"] { order: 7; }
+.value-card[data-id="ethereum"] { order: 8; }
+
+@media (min-width: 480px) {
+  .value-ways-track::before {
+    order: 6;
+  }
+  .value-card[data-id="cashapp"] { order: 1; }
+  .value-card[data-id="venmo"] { order: 2; }
+  .value-card[data-id="monero"] { order: 3; }
+  .value-card[data-id="zelle"] { order: 4; }
+  .value-card[data-id="paypal"] { order: 5; }
+  .value-card[data-id="bitcoin"] { order: 7; }
+  .value-card[data-id="ethereum"] { order: 8; }
+}
+
+@media (min-width: 640px) {
+  .value-ways-track::before {
+    display: none;
+  }
+  .value-card[data-id="cashapp"] { order: 1; }
+  .value-card[data-id="venmo"] { order: 2; }
+  .value-card[data-id="zelle"] { order: 3; }
+  .value-card[data-id="monero"] { order: 4; }
+  .value-card[data-id="paypal"] { order: 5; }
+  .value-card[data-id="bitcoin"] { order: 6; }
+  .value-card[data-id="ethereum"] { order: 7; }
+}
+
 .value-card {
   position: relative;
   flex: 0 0 64px;
@@ -156,7 +199,7 @@ a {
   color: var(--text);
   padding: 0;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
   backdrop-filter: blur(12px);
 }
 
@@ -179,12 +222,13 @@ a {
   border-color: var(--text);
   color: var(--accent);
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+  z-index: 50;
 }
 
 .value-card svg {
   width: 28px;
   height: 28px;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .value-card:hover {
@@ -192,6 +236,7 @@ a {
   border-color: var(--border-hover);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   color: var(--accent);
+  z-index: 50;
 }
 
 .value-card.is-selected {
@@ -440,6 +485,7 @@ a {
   padding: 0.75rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .modal-actions button:hover,
