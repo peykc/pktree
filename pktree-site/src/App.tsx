@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { IoSparklesOutline, IoMoonOutline } from "react-icons/io5";
 import LinkList from "./components/LinkList";
 import ProfileHeader from "./components/ProfileHeader";
@@ -83,13 +83,6 @@ const App = () => {
       setCopied(false);
     }
   }, []);
-
-  const canonicalPayUrl = useMemo(() => {
-    if (!selectedId) return null;
-    const url = new URL(window.location.href);
-    url.searchParams.set("pay", selectedId);
-    return url.toString();
-  }, [selectedId]);
 
   return (
     <main className="page-shell">
