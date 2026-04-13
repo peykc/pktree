@@ -57,7 +57,6 @@ const PaymentModal = ({
           <method.icon aria-hidden="true" />
           <div>
             <h3 id="payment-modal-title">{method.label}</h3>
-            <p>{method.summary}</p>
           </div>
         </div>
 

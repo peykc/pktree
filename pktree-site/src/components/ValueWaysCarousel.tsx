@@ -28,10 +28,10 @@ const ValueWaysCarousel = ({
             onClick={() => onSelect(method)}
             style={{ "--accent": method.accent } as CSSProperties}
             aria-pressed={selected}
-            title={method.label}
             aria-label={`${method.label} - ${method.summary}`}
           >
             <Icon aria-hidden="true" />
+            <span className="value-card-tooltip">{method.label}</span>
           </button>
         );
       })}
